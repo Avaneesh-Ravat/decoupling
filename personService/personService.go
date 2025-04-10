@@ -7,11 +7,11 @@ import (
 )
 
 type PersonService struct {
-	a accessor.Accessor
+	A accessor.Accessor
 }
 
 func (ps PersonService) get(n int) (model.Person, error) {
-	p := ps.a.Retrieve(n)
+	p := ps.A.Retrieve(n)
 	if p.First == "" {
 		return model.Person{}, fmt.Errorf("no person found at key: %v in %v", n, ps)
 	}
@@ -19,6 +19,6 @@ func (ps PersonService) get(n int) (model.Person, error) {
 }
 
 func (ps PersonService) put(n int, p model.Person) error {
-	ps.a.Save(n, p)
+	ps.A.Save(n, p)
 	return nil
 }
